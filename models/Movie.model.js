@@ -1,29 +1,34 @@
 //  Add your code here
 const { Schema, model } = require('mongoose')
 
-const celebritiesSchema = new Schema(
+const movieSchema = new Schema(
   {
-    name: {
+    title: {
       type: String,
       required: true,
       unique: true,
     },
-    occupation: {
+    genre: {
       type: String,
       required: true,
       default: "unknown"
     },    
-    catchPhrase: {
+    plot: {
       type: String,
       required: true,
-    }
+    },
+    cast: {
+        type: [Schema.Types.ObjectId],
+        ref: 'Celebrity',
+      },
   },
+
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
   }
 )
 
-const Celebrity = model('Celebrity', celebritiesSchema)
+const movieModel = model('Movies', movieSchema)
 
-module.exports = Celebrity
+module.exports = movieModel

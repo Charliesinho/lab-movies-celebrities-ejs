@@ -1,0 +1,9 @@
+<label>
+    Movies: 
+    <ul>         
+        <% allMovies.forEach(element => { %>
+            <li><%=element.title%></li>  
+            <a href="/movies/<%=element._id%>">Details</a>     
+        <% }) %>    
+    </ul>     
+</label>

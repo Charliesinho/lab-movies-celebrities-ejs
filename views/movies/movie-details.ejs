@@ -1,0 +1,18 @@
+<h2>Movie Details</h2>
+<p><%=title%></p>
+<p><%=genre%></p>
+<p><%=plot%></p>
+<ul>
+    Cast:
+<% cast.forEach(element => { %>
+ <li>Name:<%=element.name%>, Occupation:<%=element.occupation%>, Catch Phrase:<%=element.catchPhrase%></li>
+<% }) %>
+</ul>
+
+<form method="POST" action="/movies/<%=_id%>/edit">    
+    <button type="submit">Edit Movie</button>
+</form>
+
+<form method="POST" action="/movies/<%=_id%>/delete">    
+    <button type="submit">Delete Movie</button>
+</form>
